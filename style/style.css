@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "BNazanin";
+    src: url(BNazanin.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body{
+    direction: rtl;
+
+}
+*{
+    font-family: BNazanin , 'Open Sans' ;
+
+}
+p,a,span,label,button{
+    font-size: 1.8rem;
+}
+.datetimepicker,.bootstrap-datetimepicker-widget{
+    direction: ltr;
+}
+.checkbox_label{
+    margin: 0 10px;
+}
+.checkbox{
+    float: right;
+}
+#lastPurchase th{
+    text-align: right;
+}
