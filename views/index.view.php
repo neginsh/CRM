@@ -8,6 +8,7 @@ require_once "func.php";?>
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" dir="rtl">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style/style.css">
+    <link id="datepickerTheme" href="style/persian-datepicker.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
@@ -81,19 +82,27 @@ require_once "func.php";?>
                     <label for="credit_card">۴ رقم اخر کارت :</label>
                     <input type="text" name="credit_card" class="form-control">
                 </div>
+
+
                 <div class="form-group">
                     <label for="deposit_date">زمان واریز : </label>
                     <div class="form-group">
+                        <!--                        <input id="inputGroupAlt" type="text" class="form-control" placeholder="Alt Field"-->
+                        <!--                               disabled>-->
+                    </div>
+                    <div class="form-group">
                         <div class="input-group datetimepicker">
-                            <input type="text" class="form-control" name="deposit_date">
-                            <span class="input-group-addon">
-						<span class="fa fa-calendar"></span>
-						+
-						<span class="fa fa-clock-o"></span>
-					</span>
+
+                            <input id="inputGroupAlt2" type="text" class="form-control" placeholder="Alt Field" name="deposit_date">
+
+                            <span id="inputGroup" class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </span>
                         </div>
                     </div>
                 </div>
+
+
                 <div class="form-group">
                     <label for="phone_num">شماره همراه :</label>
                     <input type="text" name="phone_num" class="form-control">
@@ -119,6 +128,8 @@ require_once "func.php";?>
             </form>
         </div>
     </div>
+    <script src="persian-date.min.js"></script>
+    <script src="persian-datepicker.js"></script>
 
     <script type="text/javascript">
         var defaults = {
@@ -144,12 +155,33 @@ require_once "func.php";?>
             }
         };
 
-        $(function() {
-            var optionsDatetime = $.extend({}, {}, {format:'YYYY-MM-DD HH:mm'});
-            $('.datetimepicker').datetimepicker(optionsDatetime);
+        
+
+
+        $(document).ready(function () {
+
+
+            $('#inputGroup').persianDatepicker({
+                altField: '#inputGroupAlt,#inputGroupAlt2',
+                altFormat: 'YYYY-MM-DD HH:mm:ss',
+                calendar: {
+                    persian: {
+                        enabled: true,
+                        locale: 'en',
+                        leapYearMode: "algorithmic" // "astronomical"
+                    },
+
+                    gregorian: {
+                        enabled: false,
+                        locale: 'en'
+                    }
+                },
+                timePicker: {
+                    enabled: true
+                }
+            });
+
         });
-
-
     //    ajax for last purchase;
 
 

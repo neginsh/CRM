@@ -52,7 +52,7 @@ function addCallInfo($post , $conn){
         $deposit = $post["deposit"];
         $bank = substr($post["bank"], 0, 1);
         $credit_card = $post["credit_card"];
-        $deposit_date = $post["deposit_date"] . ":00";
+        $deposit_date = $post["deposit_date"];
         $phone_num = $post["phone_num"];
         $operator_id = substr($post["operator"], 0, 1);
 
